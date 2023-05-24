@@ -14,6 +14,9 @@ import { MasterComponent } from './components/master/master.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    MasterComponent
   ]
 })
 export class CoreModule { }
