@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MasterComponent } from './components/master/master.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,11 @@ import { MasterComponent } from './components/master/master.component';
     MasterComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
+  ],
+  exports: [
+    MasterComponent
   ]
 })
 export class CoreModule { }
