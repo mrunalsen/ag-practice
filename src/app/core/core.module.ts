@@ -4,6 +4,9 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MasterComponent } from './components/master/master.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -11,11 +14,14 @@ import { RouterModule } from '@angular/router';
   declarations: [
     HeaderComponent,
     SidebarComponent,
-    MasterComponent
+    MasterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MasterComponent

@@ -5,7 +5,11 @@ import { MasterComponent } from './core/components/master/master.component';
 const routes: Routes = [
   {
     path: '', component: MasterComponent,
-  }
+    children: [
+      { path: '', redirectTo: 'user', pathMatch: 'full' },
+      { path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule) }
+    ]
+  },
 ];
 
 @NgModule({
