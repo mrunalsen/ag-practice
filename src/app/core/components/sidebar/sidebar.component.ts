@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sidebar',
@@ -6,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private route: Router
+  ) { }
 
   ngOnInit(): void {
   }
-
+  public onLogout() {
+    this.route.navigateByUrl('/login');
+    localStorage.clear();
+  }
 }

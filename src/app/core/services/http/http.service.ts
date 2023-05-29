@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
@@ -23,11 +24,23 @@ export class HttpService {
     return header;
   }
 
+  public httpGetRequest<t>(url: string, version: string = '1.1.0'): Observable<any> {
+    const interceptableHeader: HttpHeaders = this.createHeader(version);
+    return this.http.get<t>(url, { headers: interceptableHeader });
+  }
 
-  /**
-   * Get user list
-   */
-  public getUserList() {
+  public httpPostRequest<t>(url: string, requestBody: any, version: string = '1.1.0'): Observable<any> {
+    const interceptableHeader: HttpHeaders = this.createHeader(version);
+    return this.http.post<t>(url, requestBody, { headers: interceptableHeader });
+  }
 
+  public httpPutRequest<t>(url: string, requestBody: any, version: string = '1.1.0'): Observable<any> {
+    const interceptableHeader: HttpHeaders = this.createHeader(version);
+    return this.http.put<t>(url, requestBody, { headers: interceptableHeader });
+  }
+
+  public httpDeleteRequest<t>(url: string, requestBody: any, version: string = '1.1.0'): Observable<any> {
+    const interceptableHeader: HttpHeaders = this.createHeader(version);
+    return this.http.delete<t>(url, { headers: interceptableHeader });
   }
 }

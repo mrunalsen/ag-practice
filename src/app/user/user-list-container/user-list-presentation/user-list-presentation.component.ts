@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../model/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list-presentation',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListPresentationComponent implements OnInit {
 
-  constructor() { }
+  private getAllUser: User[];
+
+  constructor(
+    private route: Router
+  ) {
+    this.getAllUser = [];
+  }
 
   ngOnInit(): void {
   }

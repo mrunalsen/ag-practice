@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiURL: 'http://172.16.3.107:2132/api/v1/'
+  // apiURL: 'http://172.16.3.107:2132/api/v1/'
+  apiURL: 'https://onechat-jj9m.onrender.com/api/v1/'
 };
 
 /*
