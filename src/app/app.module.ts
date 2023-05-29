@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { HttpService } from './core/services/http/http.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TokenInterceptorInterceptor } from './core/services/interceptor/token-interceptor.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     CoreModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [HttpService],
+  providers: [HttpService, {
+    multi: true,
+    useClass: TokenInterceptorInterceptor,
+    provide: HTTP_INTERCEPTORS
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
