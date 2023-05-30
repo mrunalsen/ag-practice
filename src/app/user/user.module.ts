@@ -7,6 +7,7 @@ import { UserListContainerComponent } from './user-list-container/user-list-cont
 import { UserListPresentationComponent } from './user-list-container/user-list-presentation/user-list-presentation.component';
 import { UserService } from './user.service';
 import { userAdapter } from './user-adapter/user.adapter';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { userAdapter } from './user-adapter/user.adapter';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    FormsModule
   ],
   providers: [
     UserService,
