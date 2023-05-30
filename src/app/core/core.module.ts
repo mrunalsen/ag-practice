@@ -5,7 +5,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MasterComponent } from './components/master/master.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth/auth.service';
@@ -23,6 +23,7 @@ import { AuthService } from './services/auth/auth.service';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
     MasterComponent,

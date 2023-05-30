@@ -1,22 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { User } from '../../model/user.model';
-import { Router } from '@angular/router';
+import { UtilitiesService } from 'src/app/shared/services/utilities.service';
 
 @Component({
-  selector: 'app-user-list-presentation',
+  selector: 'list-presentation',
   templateUrl: './user-list-presentation.component.html'
 })
 export class UserListPresentationComponent implements OnInit {
+  @Input()
+  public set getUserList(value: User[] | null) {
+    if (value) {
+      if (!this.newList) {
+        this.newList = value;
+      }
+      this._userdata = value;
+    }
+  }
+  public get getUserList(): User[] {
+    return this._userdata;
+  }
 
-  private getAllUser: User[];
+  public query!: string;
+  public newList!: User[];
+  private _userdata!: User[];
+
 
   constructor(
-    private route: Router
+    private utilityService: UtilitiesService
   ) {
-    this.getAllUser = [];
+    this.utilityService.searchData$.subscribe((res) => {
+      this._userdata = res;
+    });
   }
 
   ngOnInit(): void {
   }
-
+  public onSearch() {
+    this.utilityService.search(this.newList, this.query);
+  }
 }
