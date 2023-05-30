@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth/auth.service';
+import { LoaderService } from './services/loader/loader.service';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -16,7 +18,8 @@ import { AuthService } from './services/auth/auth.service';
     HeaderComponent,
     SidebarComponent,
     MasterComponent,
-    LoginComponent
+    LoginComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -27,10 +30,12 @@ import { AuthService } from './services/auth/auth.service';
   ],
   exports: [
     MasterComponent,
+    LoaderComponent
   ],
   providers: [
     AuthGuard,
-    AuthService
+    AuthService,
+    LoaderService
   ]
 })
 export class CoreModule { }
