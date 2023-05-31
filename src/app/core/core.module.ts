@@ -15,7 +15,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -25,11 +24,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LoaderComponent
   ],
   imports: [
+    FormsModule,
     CommonModule,
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
     ToastrModule.forRoot({
       preventDuplicates: true,
       enableHtml: true,

@@ -19,7 +19,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     UserRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     UserService,
