@@ -11,6 +11,9 @@ import { AuthGuard } from './guards/auth.guard';
 import { AuthService } from './services/auth/auth.service';
 import { LoaderService } from './services/loader/loader.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -26,7 +29,16 @@ import { LoaderComponent } from './components/loader/loader.component';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({
+      preventDuplicates: true,
+      enableHtml: true,
+      easing: 'ease-in',
+      timeOut: 5000,
+      extendedTimeOut: 2000,
+    }),
+    BrowserAnimationsModule
+
   ],
   exports: [
     MasterComponent,

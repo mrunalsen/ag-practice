@@ -1,12 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../model/user.model';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
 
 @Component({
   selector: 'list-presentation',
-  templateUrl: './user-list-presentation.component.html'
+  templateUrl: './user-list-presentation.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserListPresentationComponent implements OnInit {
+  @ViewChild('table') public table!: ElementRef;
   @Input()
   public set getUserList(value: User[] | null) {
     if (value) {
@@ -37,5 +39,9 @@ export class UserListPresentationComponent implements OnInit {
   }
   public onSearch() {
     this.utilityService.search(this.newList, this.query);
+  }
+
+  public onDownload() {
+    console.log('clicked');
   }
 }
