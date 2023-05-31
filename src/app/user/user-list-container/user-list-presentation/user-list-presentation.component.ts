@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { User } from '../../model/user.model';
 import { UtilitiesService } from 'src/app/shared/services/utilities.service';
+import domtoimage from 'dom-to-image';
 
 @Component({
   selector: 'list-presentation',
@@ -42,6 +43,11 @@ export class UserListPresentationComponent implements OnInit {
   }
 
   public onDownload() {
-    console.log('clicked');
+    domtoimage.toPng(this.table.nativeElement).then((data) => {
+      let link = document.createElement('a');
+      link.download = 'table.png';
+      link.href = data;
+      link.click();
+    });
   }
 }
