@@ -1,7 +1,9 @@
-<section class="d-flex h-100">
+<section class="d-flex overflow-hidden">
     <sidebar></sidebar>
     <main class="bg-info w-100">
         <app-header></app-header>
-        <router-outlet></router-outlet>
+        <div class="overflow-auto h-100">
+            <router-outlet></router-outlet>
+        </div>
     </main>
 </section>

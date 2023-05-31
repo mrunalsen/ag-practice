@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'sidebar',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   constructor(
-    private route: Router
+    private route: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -16,5 +18,6 @@ export class SidebarComponent implements OnInit {
   public onLogout() {
     this.route.navigateByUrl('/login');
     localStorage.clear();
+    this.toastr.info('Logged Out');
   }
 }
