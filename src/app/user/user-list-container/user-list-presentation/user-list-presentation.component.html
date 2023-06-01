@@ -1,4 +1,4 @@
-<section>
+<section class="d-flex flex-column">
     <div class="d-flex justify-content-between">
         <!-- Search -->
         <div>
@@ -9,26 +9,28 @@
         <button class="btn btn-primary" (click)="onDownload()">Download</button>
     </div>
     <!-- list -->
-    <table #table class="table overflow-hidden table-primary">
-        <thead>
-            <tr class="table-primary">
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Full Name</th>
-                <th>Role</th>
-                <th>Email</th>
-                <th>id</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let items of getUserList">
-                <td class="table-primary">{{items.first_name}}</td>
-                <td class="table-primary">{{items.last_name}}</td>
-                <td class="table-primary">{{items.full_name}}</td>
-                <td class="table-primary">{{items.role}}</td>
-                <td class="table-primary">{{items.email}}</td>
-                <td class="table-primary">{{items._id}}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-container overflow-auto">
+        <table #table class="table overflow-hidden table-primary">
+            <thead>
+                <tr class="table-primary">
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Full Name</th>
+                    <th>Role</th>
+                    <th>Email</th>
+                    <th>id</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let items of getUserList">
+                    <td class="table-primary">{{items.first_name}}</td>
+                    <td class="table-primary">{{items.last_name}}</td>
+                    <td class="table-primary">{{items.full_name}}</td>
+                    <td class="table-primary">{{items.role}}</td>
+                    <td class="table-primary">{{items.email}}</td>
+                    <td class="table-primary">{{items._id}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </section>

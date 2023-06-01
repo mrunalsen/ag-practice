@@ -33,7 +33,7 @@
                     <input type="password" class="form-control" id="password" formControlName="password">
                 </div>
                 <div class="mb-3 text-center">
-                    <button class="btn" disabled>Forgot password?</button>
+                    <button class="btn">Forgot password?</button>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary">login</button>
@@ -64,14 +64,20 @@
         </div>
         <!-- End : Sign up -->
         <!-- Start : overlay -->
-        <div class="overlay-container bg-info d-flex align-items-center" [ngClass]="{'translate-right': translate }">
-            <div class="overlay w-100 text-center">
-                <div class="overlay-panel w-100 translate-left overlay-left" [ngClass]="{'translate-left': translate}">
+        <div class="login-overlay-container bg-info d-flex align-items-center"
+            [ngClass]="{'translate-right': translate }">
+            <div class="login-overlay w-100 text-center">
+
+                <img src="/assets/img/loginBG.png" alt="login background" class="login-bg h-100"
+                    [ngClass]="{'login-bg-x': translate1}">
+
+                <div class="login-overlay-panel w-100 translate-left overlay-left"
+                    [ngClass]="{'translate-left': translate}">
                     <h1>Welcome Back!</h1>
                     <p>login</p>
                     <button class="btn btn-warning" id="signIn" (click)="onTranslate()">Sign In</button>
                 </div>
-                <div class="overlay-panel w-100 overlay-right" [ngClass]="{'translate-right': translate1}">
+                <div class="login-overlay-panel w-100 overlay-right" [ngClass]="{'translate-right': translate1}">
                     <h1>Sign Up</h1>
                     <p>Enter your details</p>
                     <button class="btn btn-warning" id="signUp" (click)="onTranslate()">Sign Up</button>
