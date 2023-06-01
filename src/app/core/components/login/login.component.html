@@ -64,17 +64,17 @@
         </div>
         <!-- End : Sign up -->
         <!-- Start : overlay -->
-        <div class="overlay-container translate-right bg-info d-flex align-items-center">
+        <div class="overlay-container bg-info d-flex align-items-center" [ngClass]="{'translate-right': translate }">
             <div class="overlay w-100 text-center">
-                <div class="overlay-panel w-100 translate-left overlay-left">
+                <div class="overlay-panel w-100 translate-left overlay-left" [ngClass]="{'translate-left': translate}">
                     <h1>Welcome Back!</h1>
                     <p>login</p>
-                    <button class="ghost" id="signIn">Sign In</button>
+                    <button class="btn btn-warning" id="signIn" (click)="onTranslate()">Sign In</button>
                 </div>
-                <div class="overlay-panel w-100 overlay-right">
+                <div class="overlay-panel w-100 overlay-right" [ngClass]="{'translate-right': translate1}">
                     <h1>Sign Up</h1>
                     <p>Enter your details</p>
-                    <button class="ghost" id="signUp">Sign Up</button>
+                    <button class="btn btn-warning" id="signUp" (click)="onTranslate()">Sign Up</button>
                 </div>
             </div>
         </div>

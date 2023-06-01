@@ -18,7 +18,8 @@ export class LoginComponent implements OnInit {
 
   public isMobile: boolean;
   public innerWidth: any;
-
+  public translate: boolean;
+  public translate1: boolean;
   public loginForm: FormGroup;
   private destroy: Subject<void>;
   constructor(
@@ -32,7 +33,8 @@ export class LoginComponent implements OnInit {
       password: []
     });
     this.destroy = new Subject();
-
+    this.translate = true;
+    this.translate1 = false;
     this.isMobile = true;
   }
 
@@ -50,5 +52,9 @@ export class LoginComponent implements OnInit {
 
   public get getControls() {
     return this.loginForm.controls;
+  }
+  public onTranslate() {
+    this.translate = !this.translate;
+    this.translate1 = !this.translate1;
   }
 }
