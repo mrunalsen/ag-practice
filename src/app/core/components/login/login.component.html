@@ -1,11 +1,83 @@
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+<ng-container *ngIf="isMobile; then desktop; else mobile"></ng-container>
+
+<!-- <ng-template #desktop>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+        </div>
+        <button type="submit" class="btn btn-primary">login</button>
+    </form>
+</ng-template> -->
+
+<ng-template #mobile>
+    Mobile view
+</ng-template>
+
+<ng-template #desktop>
+    <div class="d-flex position-relative overflow-hidden h-100">
+        <!-- Start : Login -->
+        <div class="form-container d-flex col-6 justify-content-center align-items-center login-container">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <h2>Log In</h2>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="password" formControlName="password">
+                </div>
+                <div class="mb-3 text-center">
+                    <button class="btn" disabled>Forgot password?</button>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">login</button>
+                </div>
+            </form>
+        </div>
+        <!-- End : Login -->
+        <!-- Start : Sign up -->
+        <div class="form-container d-flex col-6 justify-content-center align-items-center signup-container">
+            <form>
+                <h2>Sign Up</h2>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="username" class="form-control" id="username">
+                </div>
+                <div class="mb-3">
+                    <label for="signupEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="signupEmail">
+                </div>
+                <div class="mb-3">
+                    <label for="signupPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signupPassword">
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <!-- End : Sign up -->
+        <!-- Start : overlay -->
+        <div class="overlay-container translate-right bg-info d-flex align-items-center">
+            <div class="overlay w-100 text-center">
+                <div class="overlay-panel w-100 translate-left overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>login</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel w-100 overlay-right">
+                    <h1>Sign Up</h1>
+                    <p>Enter your details</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+        <!-- End : overlay -->
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="password" formControlName="password">
-    </div>
-    <button type="submit" class="btn btn-primary">login</button>
-</form>
+</ng-template>

@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, HostListener, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 import { Subject, takeUntil } from 'rxjs';
@@ -10,6 +10,14 @@ import { CommonService } from 'src/app/shared/services/common.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
+  @HostListener('window:resize', ['$event'])
+  onResize(event: any) {
+    this.innerWidth = window.innerWidth;
+    this.innerWidth >= 768 ? this.isMobile = true : this.isMobile = false;
+  }
+
+  public isMobile: boolean;
+  public innerWidth: any;
 
   public loginForm: FormGroup;
   private destroy: Subject<void>;
@@ -24,6 +32,8 @@ export class LoginComponent implements OnInit {
       password: []
     });
     this.destroy = new Subject();
+
+    this.isMobile = true;
   }
 
   ngOnInit(): void {
